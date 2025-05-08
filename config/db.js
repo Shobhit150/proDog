@@ -1,4 +1,4 @@
-import mongoose from "moongose"
+import mongoose from "mongoose"
 
 let cached = global.mongoose
 
