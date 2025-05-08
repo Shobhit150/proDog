@@ -1,5 +1,6 @@
 import { Inngest } from "inngest";
 import connectDB from "./db";
+import User from "@/models/User";
 
 export const inngest = new Inngest({id : "quickcart-next"})
 
@@ -21,6 +22,7 @@ export const syncUserCreation = inngest.createFunction(
 
         await connectDB()
         await User.create(userData)
+        
     }
 )
 
@@ -41,6 +43,7 @@ export const syncUserUpdation = inngest.createFunction(
         }
 
         await connectDB()
+        
         await User.findByIdAndUpdate(id,userData)
     }
 )
