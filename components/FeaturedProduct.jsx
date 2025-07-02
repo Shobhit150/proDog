@@ -1,27 +1,28 @@
 import React from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
-
+import dummy1 from "@/assets/dummy_1.jpeg"
 const products = [
   {
     id: 1,
-    image: assets.girl_with_headphone_image,
-    title: "Unparalleled Sound",
-    description: "Experience crystal-clear audio with premium headphones.",
+    image: dummy1,
+    title: "High-Protein Chicken Feast",
+    description: "Nutritious chicken-based dog food for strong muscles and energy.",
   },
   {
     id: 2,
-    image: assets.girl_with_earphone_image,
-    title: "Stay Connected",
-    description: "Compact and stylish earphones for every occasion.",
+    image: dummy1,
+    title: "Grain-Free Salmon Delight",
+    description: "Delicious salmon formula supporting skin and coat health.",
   },
   {
     id: 3,
-    image: assets.boy_with_laptop_image,
-    title: "Power in Every Pixel",
-    description: "Shop the latest laptops for work, gaming, and more.",
+    image: dummy1,
+    title: "Healthy Puppy Growth Mix",
+    description: "Specially formulated puppy food with DHA and essential nutrients.",
   },
 ];
+
 
 const FeaturedProduct = () => {
   return (

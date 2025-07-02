@@ -4,6 +4,17 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+@font-face {
+  font-family: 'Futura';
+  src: url('/font/futuraextrablackfont.ttf') format('truetype');
+  font-weight: 900; /* Set a high weight */
+  font-style: normal;
+}
+
+.Futura-font {
+  font-family: 'Futura', sans-serif;
+}
+
 
 /* @theme inline {
   --color-background: var(--background);

@@ -5,28 +5,19 @@ import Image from "next/image";
 const HeaderSlider = () => {
   const sliderData = [
     {
-      id: 1,
-      title: "Experience Pure Sound - Your Perfect Headphones Awaits!",
-      offer: "Limited Time Offer 30% Off",
-      buttonText1: "Buy now",
-      buttonText2: "Find more",
-      imgSrc: assets.header_headphone_image,
+      title: "Pro Dog",
+      image: "/IMG_3454.JPG",
+      subtitle: "BUY DOGS"
     },
     {
-      id: 2,
-      title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
-      offer: "Hurry up only few lefts!",
-      buttonText1: "Shop Now",
-      buttonText2: "Explore Deals",
-      imgSrc: assets.header_playstation_image,
+      title: "Cat Food",
+      image: "/IMG_3456.JPG",
+      subtitle: "BUY CATS"
     },
     {
-      id: 3,
-      title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
-      offer: "Exclusive Deal 40% Off",
-      buttonText1: "Order Now",
-      buttonText2: "Learn More",
-      imgSrc: assets.header_macbook_image,
+      title: "Dog Food",
+      image: "/IMG_3457.JPG",
+      subtitle: "BUY FOOD"
     },
   ];
 
@@ -35,7 +26,7 @@ const HeaderSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderData.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [sliderData.length]);
 
@@ -53,46 +44,39 @@ const HeaderSlider = () => {
       >
         {sliderData.map((slide, index) => (
           <div
-            key={slide.id}
-            className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#E6E9F2] py-8 md:px-14 px-5 mt-6 rounded-xl min-w-full"
+            key={index}
+            className="min-w-full relative md:h-[85vh] h-[50vh] w-full"
           >
-            <div className="md:pl-8 mt-10 md:mt-0">
-              <p className="md:text-base text-orange-600 pb-1">{slide.offer}</p>
-              <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold">
-                {slide.title}
-              </h1>
-              <div className="flex items-center mt-4 md:mt-6 ">
-                <button className="md:px-10 px-7 md:py-2.5 py-2 bg-orange-600 rounded-full text-white font-medium">
-                  {slide.buttonText1}
-                </button>
-                <button className="group flex items-center gap-2 px-6 py-2.5 font-medium">
-                  {slide.buttonText2}
-                  <Image className="group-hover:translate-x-1 transition" src={assets.arrow_icon} alt="arrow_icon" />
+            {/* Background Image */}
+            <Image
+              className="object-cover z-0"
+              src={slide.image}
+              fill
+              alt={`Slide ${index + 1}`}
+            />
+
+            {/* Overlay Text */}
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white bg-black/40">
+              <div className="flex-1 flex items-center justify-center">
+                <h2 className="text-[10vw] Futura-font font-extrabold text-center">
+                  {slide.title}
+                </h2>
+              </div>
+
+              {/* Bottom p and button */}
+              <div className="flex flex-col items-center pb-8">
+                <p className="Futura-font text-[22px] font-medium">{slide.subtitle}</p>
+                <button className="mt-4 text-black bg-white px-5 py-1.5 rounded-[6px]  transition">
+                  Shop Now
                 </button>
               </div>
             </div>
-            <div className="flex items-center flex-1 justify-center">
-              <Image
-                className="md:w-72 w-48"
-                src={slide.imgSrc}
-                alt={`Slide ${index + 1}`}
-              />
-            </div>
+
           </div>
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-8">
-        {sliderData.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${
-              currentSlide === index ? "bg-orange-600" : "bg-gray-500/30"
-            }`}
-          ></div>
-        ))}
-      </div>
+      
     </div>
   );
 };
